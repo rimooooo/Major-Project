@@ -39,6 +39,8 @@ app.use(methodOverride("_method"));
 app.engine("ejs", ejsMate);
 app.use(express.static(path.join(__dirname,"public")));
 
+const atlasDb_url = process.env.ATLASDB_URL;
+
 const store = MongoStore.create({
    mongoUrl : atlasDb_url,
    crypto : {
@@ -64,7 +66,7 @@ const sessionOptions = {
 };
 
 //const mongoDb_url = "mongodb://localhost:27017/wanderLust";
-const atlasDb_url = process.env.ATLASDB_URL;
+
 
 //mongodb connection
 async function main(){
